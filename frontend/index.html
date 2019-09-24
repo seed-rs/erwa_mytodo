@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MyTODO</title>
+</head>
+<body>
+<div id="app"></div>
+<script type="module">
+      // https://rustwasm.github.io/docs/wasm-bindgen/examples/without-a-bundler.html
+      import init from '/pkg/package.js';
+      init('/pkg/package_bg.wasm');
+    </script>
+</body>
+</html>
+
