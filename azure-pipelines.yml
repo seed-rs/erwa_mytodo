@@ -1,9 +1,31 @@
-stages:
-  - template: azure/stages.yml@templates
+pool:
+  vmImage: 'ubuntu-latest'
 
-resources:
-  repositories:
-    - repository: templates
-      type: github
-      name: crate-ci/azure-pipelines
-      endpoint: MartinKavik
+steps:
+  - script: sudo apt install sqlite3 libsqlite3-0 libsqlite3-dev
+    displayName: install sqlite
+
+  - script: rustup toolchain install nightly
+    displayName: install nightly rust
+
+  - script: rustup default nightly
+    displayName: switch to nightly rust
+
+  - script: cargo install --debug cargo-make
+    displayName: install cargo-make
+
+  - script: cargo make
+    displayName: make default task
+
+
+# Resources
+# - https://readrust.net/devops-and-deployment/
+# - https://nbsoftsolutions.com/blog/azure-pipelines-for-rust-projects
+# - https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops#use-a-microsoft-hosted-agent
+# - https://github.com/Microsoft/azure-pipelines-image-generation/blob/master/images/linux/Ubuntu1604-README.md
+# - https://sagiegurari.github.io/cargo-make/#usage-ci-azure-pipelines
+
+
+
+
+
