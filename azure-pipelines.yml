@@ -2,7 +2,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - script: sudo apt install sqlite3 libsqlite3-0 libsqlite3-dev
+  - script: sudo apt-get install sqlite3 libsqlite3-0 libsqlite3-dev
     displayName: install sqlite
 
   - script: rustup toolchain install nightly
