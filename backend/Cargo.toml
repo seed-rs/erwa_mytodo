@@ -7,7 +7,7 @@ edition = "2018"
 [dependencies]
 mytodo = { path = ".." }
 diesel = { version = "1.0.0", features = ["sqlite"] }
-rocket = "0.4.2"
+rocket = "0.4.7"
 rocket_cors = { version = "0.5.0", default-features = false }
 serde = { version = "1.0", features = ["derive"] }
 
